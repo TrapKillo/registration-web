@@ -1,152 +1,24 @@
-.button {
-  background-color: transparent;
-  border: 3px solid white;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  font-family: 'Verdana';
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
+<?php include('server.php'); ?>
 
-.form {
-  margin: 150px;
-  position: relative;
-}
-
-.angry-animate {
-  -webkit-animation:bounce-out 2s ease 0s 1 normal;
-  -moz-animation:bounce-out 2s ease 0s 1 normal;
-  -ms-animation:bounce-out 2s ease 0s 1 normal;
-  animation:bounce-out 2s ease 0s 1 normal;
-  transition-delay: 2s;
-}
-
-@-webkit-keyframes bounce-out {
-  0%{ -webkit-transform: scale(1); transform: scale(1); }
-  50%{ -webkit-transform: scale(0.90); transform: scale(0.90); }
-  70%{ opacity: 1; -webkit-transform: scale(1.1); transform: scale(1.1); }
-  100%{ opacity: 0; -webkit-transform: scale(0.3); transform: scale(0.3); }
-}
-
-@keyframes bounce-out {
-  0%{ transform: scale(1); }
-  50%{ transform: scale(0.90); }
-  70%{ opacity: 1; transform: scale(1.1); }
-  100%{ opacity: 0; transform: scale(0.3); }
-}
-
-.wrapper { 
-  left:0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-background-size: 1800% 1800%;
-
--webkit-animation: rainbow 18s ease infinite;
--z-animation: rainbow 18s ease infinite;
--o-animation: rainbow 18s ease infinite;
-  animation: rainbow 18s ease infinite;}
-
-@-webkit-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-@-moz-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-@-o-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-@keyframes rainbow { 
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
-}
-
-h1 {
-  font-family: 'Verdana', arial, serif;
-  line-height: 1.25;
-  margin: 0 0 10px;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-
-p {
-  font-family: 'Arial Black';
-  color: white;
-  stroke: 1000px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-.error:hover {
-  display: block;
-    color: red;
-    -webkit-animation: slide-down 1s ease-out;
-    -moz-animation: slide-down 1s ease-out;
-}
-@-webkit-keyframes slide-down {
-  100% { opacity: 10; }
-  90% { opacity: 0.9; }
-  80% { opacity: 0.8; }
-   70% { opacity: 0.7; }
-   60% { opacity: 0.6; }
-   50% { opacity: 0.5; }
-   40% { opacity: 0.4; }
-   30% { opacity: 0.3; }
-   20% { opacity: 0.2; }
-   10% { opacity: 0.1; }
-
-}
-@-moz-keyframes slide-down {
- 100% { opacity: 1; }
-  90% { opacity: 0.9; }
-  80% { opacity: 0.8; }
-   70% { opacity: 0.7; }
-   60% { opacity: 0.6; }
-   50% { opacity: 0.5; }
-   40% { opacity: 0.4; }
-   30% { opacity: 0.3; }
-   20% { opacity: 0.2; }
-   10% { opacity: 0.1; }
-     
-}
-
-input, textarea {
-  border-radius: 5px;
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD;
-}
- 
- /*.input:focus { border: 5px solid #8842d5 !important; outline: none; }*/
-input:focus, textarea:focus {
-  box-shadow: 0 0 5px white;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 5px solid white !important; outline: none; ;
-}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="styles.css"/>
+		<script src="script.js"></script>
+	</head>
+<body>
+	<div class="wrapper">
+		<center>
+			<form action="login.php" method="post" class="form">
+				<h1>Login</h1>
+				<?php include('errors.php'); ?>
+				<input type="text" name="username" autocomplete="off" placeholder="username" /><br style="line-height:25px;">
+				<input type="password" name="password" placeholder="password"/><br style="line-height:25px;">
+					<input type="submit" onclick="animateLogin();" class="button" id='loginBTN' name="login" value="Login">
+					<p>Don't have an account? <a href="register.php">Register</a> </p>
+			</form>
+		</center>
+	</div>
+</body>
+</html>
